@@ -1,0 +1,151 @@
+/* inspired by Wes Bos: https://cssgrid.io/ */
+
+
+/* page layout using CSS grid */
+
+#container {
+	display: grid;
+
+	/* fr: the fraction unit will divide the space (or space remaining) in your container. (e.g: a container that has grid-template-columns of 1fr, 60px, 1fr will create a middle column of 60px and then equally split the remainder of the space in the container on either side of the middle column). On line 8, I am splitting my container into two columns, each of 1fr. */
+	grid-template-columns: repeat(2, 1fr);
+
+	/* Wes Bos compares this to ascii. You can label each area of your grid and create a visual layout. Here, we see that I will be using two grid columns and the first grid row for my header, etc. */
+	/* To better examine this layout, see the Inspector Tools in Firefox Developer Edition. Under "Layout" select the Overlay Grid you want to examine and check all the boxes for Grid Display Settings */
+	grid-template-areas: 
+		"header  header"
+		"main    main"
+		"footer  footer"
+}
+
+.header {
+	grid-area: header;
+}
+
+.main {
+	grid-area: main;
+}
+
+.footer {
+	grid-area: footer;
+}
+
+#main_grid {
+	display: grid;
+	grid-template-columns: 2, 1fr; 
+	grid-template-areas: 
+	/* the . means leave a grid-template-area blank. */
+		"aside-1 section-1"
+		"aside-1 section-2"
+		"aside-1 section-3"
+		"aside-2 section-3"
+		" .      section-3"
+}
+
+.aside1 {
+	grid-area: aside-1;
+}
+
+.aside2 {
+	grid-area: aside-2;
+	border: 2px solid #fc6a29;
+	box-shadow: 2px 2px 4px #a8471b;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 5%;
+}
+
+/* selecting multiple elements that need the same styling applied */
+.aside2 h2, .aside2 p {
+	text-align: center;
+}
+
+.aside2 p em {
+	text-transform: uppercase;
+	font-style: normal;
+}
+
+.aside2 ol {
+	margin-left: 5%;
+	margin-bottom: 8%;
+}
+
+img {
+	/* ensure that image can scale with the browser */
+	max-width: 100%;
+}
+
+.section1 {
+	grid-area: section-1;
+}
+
+.section2 {
+	grid-area: section-2;
+}
+
+.section3 {
+	grid-area: section-3;
+}
+
+header h1 {
+	color: #fc6a29;
+	text-transform: lowercase;
+	font-size: 6em;
+	text-align: center;
+	margin: 2%;
+}
+
+header p {
+	text-transform: uppercase;
+}
+
+footer p {
+	text-align: right;
+	padding-right: 1%;
+}
+
+footer em {
+	color: #fc6a29;
+}
+
+h3 {
+	text-transform: uppercase;
+}
+
+.section1 {
+	border-top: solid #73ab20 2.5vh;
+}
+
+.section2 {
+	border-top: solid #e4247e 2.5vh;
+}
+
+.section3 {
+	border-top: solid #0aa0b7 2.5vh;
+}
+
+.section1 h3 {
+	color: #73ab20;
+}
+
+.section2 h3 {
+	color: #e4247e;
+}
+
+.section3 h3 {
+	color: #0aa0b7;
+}
+
+h2 {
+	text-transform: lowercase;
+	font-size: 3em;
+	margin-top: 2%;
+	margin-bottom: 0;
+}
+
+p, h3, ol {
+	font-family: "Verdana", sans-serif;
+}
+
+section {
+	margin-right: 5%;
+}
